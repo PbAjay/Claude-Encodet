@@ -1,0 +1,13 @@
+services:
+  compbot:
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    container_name: compbot
+    env_file:
+      - .env
+    volumes:
+      - "./downloads:/bot/downloads"
+      - "./encode:/bot/encode"
+      - "./session:/bot/session"
+    restart: unless-stopped
