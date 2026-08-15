@@ -1,0 +1,9 @@
+.env
+downloads/
+encode/
+thumb.jpg
+*.session
+*.session-journal
+bot.log
+__pycache__/
+*.pyc
