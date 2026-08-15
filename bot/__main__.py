@@ -10,6 +10,7 @@ from .config import BOT_TOKEN, DEV, OWNER, DEFAULT_THUMBNAIL
 from . import db
 from .devtools import is_authorised, run_eval, run_bash
 from .worker import queue_loop, enqueue
+from .health import start_health_server
 from . import worker as worker_module
 from .helpers import decode_ref
 from .commands import (
@@ -183,6 +184,7 @@ async def main():
         LOGS.info("Resumed %d interrupted job(s) from a previous run.", resumed)
 
     LOGS.info("Bot started.")
+    await start_health_server()
     asyncio.create_task(queue_loop())
     await bot.run_until_disconnected()
 
